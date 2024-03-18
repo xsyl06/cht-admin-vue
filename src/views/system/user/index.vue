@@ -49,7 +49,7 @@
       </el-form-item>
     </el-form>
     <el-alert
-      title="注意：您只能失效用户"
+      title="注意：平台目前只能失效用户，以防止和用户由关联的查询报错"
       type="warning"
       show-icon
 

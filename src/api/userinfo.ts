@@ -40,3 +40,7 @@ export const updateUser = (data?:object) =>{
 export const resetUserPwd = (data?:number) =>{
   return http.request<UserInfo>("get",`${baseUrl}/resetPwd/${data}`);
 }
+
+export const changeUserPwd = (data?:object) =>{
+  return http.request<UserInfo>("post", `${baseUrl}/changePwd`, {data});
+}

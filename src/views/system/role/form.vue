@@ -62,7 +62,15 @@ defineExpose({getRef});
         check-on-click-node
         :empty-text="'暂无数据'"
         :render-after-expand="false"
-        />
+      >
+        <template #default="{ data: { label, state } }">
+          <span style="float: left">{{ label }}</span>
+          <span
+            v-if="!state"
+            style="float: right;color: var(--el-color-danger);font-size: 13px;"
+          >已停用</span>
+        </template>
+      </el-tree-select>
     </el-form-item>
     <el-form-item label="角色状态">
       <el-switch

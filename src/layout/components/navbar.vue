@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import Search from "./search/index.vue";
-import Notice from "./notice/index.vue";
 import mixNav from "./sidebar/mixNav.vue";
-import { useNav } from "@/layout/hooks/useNav";
+import {useNav} from "@/layout/hooks/useNav";
 import Breadcrumb from "./sidebar/breadCrumb.vue";
 import topCollapse from "./sidebar/topCollapse.vue";
 import LogoutCircleRLine from "@iconify-icons/ri/logout-circle-r-line";
 import Setting from "@iconify-icons/ri/settings-3-line";
+import {changePwd} from "@/layout/components/changePwd";
+import PasswordReset from "@iconify-icons/mdi/password-reset";
 
 const {
   layout,
@@ -25,24 +26,24 @@ const {
 <template>
   <div class="navbar bg-[#fff] shadow-sm shadow-[rgba(0,21,41,0.08)]">
     <topCollapse
-      v-if="device === 'mobile'"
-      class="hamburger-container"
-      :is-active="pureApp.sidebar.opened"
-      @toggleClick="toggleSideBar"
+        v-if="device === 'mobile'"
+        class="hamburger-container"
+        :is-active="pureApp.sidebar.opened"
+        @toggleClick="toggleSideBar"
     />
 
     <Breadcrumb
-      v-if="layout !== 'mix' && device !== 'mobile'"
-      class="breadcrumb-container"
+        v-if="layout !== 'mix' && device !== 'mobile'"
+        class="breadcrumb-container"
     />
 
-    <mixNav v-if="layout === 'mix'" />
+    <mixNav v-if="layout === 'mix'"/>
 
     <div v-if="layout === 'vertical'" class="vertical-header-right">
       <!-- 菜单搜索 -->
-      <Search id="header-search" />
+      <Search id="header-search"/>
       <!-- 通知 -->
-<!--      <Notice id="header-notice" />-->
+      <!--      <Notice id="header-notice" />-->
       <!-- 退出登录 -->
       <el-dropdown trigger="click">
         <span class="el-dropdown-link navbar-bg-hover select-none">
@@ -51,10 +52,19 @@ const {
         </span>
         <template #dropdown>
           <el-dropdown-menu class="logout">
+            <el-dropdown-item @click="changePwd(nickName)">
+              <IconifyIconOffline
+                  :icon="PasswordReset"
+                  style="margin: 5px"
+              />
+              修改密码
+            </el-dropdown-item>
+          </el-dropdown-menu>
+          <el-dropdown-menu class="logout">
             <el-dropdown-item @click="logout">
               <IconifyIconOffline
-                :icon="LogoutCircleRLine"
-                style="margin: 5px"
+                  :icon="LogoutCircleRLine"
+                  style="margin: 5px"
               />
               退出系统
             </el-dropdown-item>
@@ -62,11 +72,11 @@ const {
         </template>
       </el-dropdown>
       <span
-        class="set-icon navbar-bg-hover"
-        title="打开项目配置"
-        @click="onPanel"
+          class="set-icon navbar-bg-hover"
+          title="打开项目配置"
+          @click="onPanel"
       >
-        <IconifyIconOffline :icon="Setting" />
+        <IconifyIconOffline :icon="Setting"/>
       </span>
     </div>
   </div>

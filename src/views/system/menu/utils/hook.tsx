@@ -49,7 +49,7 @@ export function useMenu() {
     {
       label: "菜单类型",
       prop: "menuType",
-      width: 100,
+      width: 80,
       cellRenderer: ({ row, props }) => (
         <el-tag
           size={props.size}
@@ -75,7 +75,7 @@ export function useMenu() {
     {
       label: "排序",
       prop: "rank",
-      width: 100
+      width: 80
     },
     {
       label: "隐藏",
