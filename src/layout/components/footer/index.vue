@@ -11,7 +11,7 @@ const TITLE = getConfig("Title");
     Copyright © 2020-present
     <a
       class="hover:text-primary"
-      href="https://github.com/pure-admin"
+      href="https://gitee.com/xsyl06/cht-admin-vue"
       target="_blank"
     >
       &nbsp;{{ TITLE }}

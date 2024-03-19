@@ -9,6 +9,8 @@ import type {PaginationProps} from "@pureadmin/table";
 import {reactive, ref, onMounted, h, toRaw} from "vue";
 import {addRole, changeState, deleteRole, getAllMenuList, getMenusByRoleId, getRoleList, updateRole} from "@/api/role";
 import {cloneDeep} from "@pureadmin/utils";
+import {hasAuth} from "@/router/utils";
+import {MenuPageButton} from "@/utils/permissionMenu";
 
 export function useRole() {
   const form = reactive({

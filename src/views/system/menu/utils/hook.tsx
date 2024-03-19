@@ -7,12 +7,13 @@ import type { FormItemProps } from "../utils/types";
 import { cloneDeep, isAllEmpty } from "@pureadmin/utils";
 import { useRenderIcon } from "@/components/ReIcon/src/hooks";
 import { addMenu, getMenuList, updateMenu, deleteMenu } from "@/api/menu";
+import {usePublicHooks} from "@/views/system/hooks";
 
 export function useMenu() {
   const form = reactive({
     menuTitle: ""
   });
-
+  const {tagStyle} = usePublicHooks();
   const formRef = ref();
   const dataList = ref([]);
   const loading = ref(true);
@@ -71,6 +72,16 @@ export function useMenu() {
     {
       label: "权限标识",
       prop: "auths"
+    },
+    {
+      label: "状态",
+      prop: "state",
+      minWidth: 100,
+      cellRenderer: ({ row, props }) => (
+        <el-tag size={props.size} style={tagStyle.value(row.state)}>
+          {row.state ? "启用" : "停用"}
+        </el-tag>
+      )
     },
     {
       label: "排序",

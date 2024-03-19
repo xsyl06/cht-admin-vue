@@ -72,13 +72,13 @@ const {
 
       <template #buttons>
         <Auth :value="MenuPageButton.MENU_ADD">
-        <el-button
-          type="primary"
-          :icon="useRenderIcon(AddFill)"
-          @click="openDialog()"
-        >
-          新增
-        </el-button>
+          <el-button
+            type="primary"
+            :icon="useRenderIcon(AddFill)"
+            @click="openDialog()"
+          >
+            新增
+          </el-button>
         </Auth>
       </template>
       <template v-slot="{ size, dynamicColumns }">
@@ -102,17 +102,6 @@ const {
         >
           <template #operation="{ row }">
             <el-button
-              class="reset-margin"
-              link
-              type="primary"
-              :size="size"
-              :icon="useRenderIcon(EditPen)"
-              @click="openDialog('修改', row)"
-            >
-              修改
-            </el-button>
-
-            <el-button
               v-show="row.menuType !== 3"
               v-if="hasAuth(MenuPageButton.MENU_ADD)"
               class="reset-margin"
@@ -123,6 +112,17 @@ const {
               @click="openDialog('新增', { parentId: row.id } as any)"
             >
               新增
+            </el-button>
+            <el-button
+              v-if="hasAuth(MenuPageButton.MENU_UPDATE)"
+              class="reset-margin"
+              link
+              type="primary"
+              :size="size"
+              :icon="useRenderIcon(EditPen)"
+              @click="openDialog('修改', row)"
+            >
+              修改
             </el-button>
             <el-popconfirm
               :title="`是否确认删除菜单名称为[ ${row.menuTitle}]的这条数据。${
@@ -135,6 +135,7 @@ const {
             >
               <template #reference>
                 <el-button
+                  v-if="hasAuth(MenuPageButton.MENU_DELETE)"
                   class="reset-margin"
                   link
                   type="primary"

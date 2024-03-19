@@ -62,6 +62,7 @@
       <template #buttons>
         <el-button
           type="primary"
+          v-if="hasAuth(MenuPageButton.USER_ADD)"
           :icon="useRenderIcon(AddFill)"
           @click="openDialog()"
         >
@@ -91,6 +92,7 @@
           <template #operation="{ row }">
             <el-button
               class="reset-margin"
+              v-if="hasAuth(MenuPageButton.USER_UPDATE)"
               link
               type="primary"
               :size="size"
@@ -105,6 +107,7 @@
             >
               <template #reference>
                 <el-button
+                  v-if="hasAuth(MenuPageButton.USER_RESETPWD)"
                   class="reset-margin"
                   link
                   :type="'warning'"
@@ -132,6 +135,8 @@ import reset from "@iconify-icons/mdi/lock-reset";
 import {PureTableBar} from "@/components/RePureTableBar";
 import {ref} from "vue";
 import {useUser} from "@/views/system/user/utils/hook";
+import {hasAuth} from "@/router/utils";
+import {MenuPageButton} from "@/utils/permissionMenu";
 
 defineOptions({
   name: "User"

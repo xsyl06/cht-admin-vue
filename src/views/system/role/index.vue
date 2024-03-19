@@ -8,6 +8,8 @@ import EditPen from "@iconify-icons/ep/edit-pen";
 import Refresh from "@iconify-icons/ep/refresh";
 import Menu from "@iconify-icons/ep/menu";
 import AddFill from "@iconify-icons/ri/add-circle-line";
+import {hasAuth} from "@/router/utils";
+import {MenuPageButton} from "@/utils/permissionMenu";
 
 defineOptions({
   name: "Role"
@@ -91,6 +93,7 @@ const {
     >
       <template #buttons>
         <el-button
+          v-if="hasAuth(MenuPageButton.ROLE_ADD)"
           type="primary"
           :icon="useRenderIcon(AddFill)"
           @click="openDialog()"
@@ -121,6 +124,7 @@ const {
           <template #operation="{ row }">
             <el-button
               class="reset-margin"
+              v-if="hasAuth(MenuPageButton.ROLE_UPDATE)"
               link
               type="primary"
               :size="size"
@@ -135,6 +139,7 @@ const {
             >
               <template #reference>
                 <el-button
+                  v-if="hasAuth(MenuPageButton.ROLE_DELETE)"
                   class="reset-margin"
                   link
                   type="primary"
