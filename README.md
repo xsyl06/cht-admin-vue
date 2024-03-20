@@ -10,6 +10,7 @@
 前端是基于pure-admin-thin二次开发的后端管理系统，该项目仅包含后台管理的用户、角色、菜单权限以及登录鉴权等最基础功能，适合作为后台管理的脚手架进行使用。
 
 具体前端相关问题可查看[vue-pure-admin保姆级文档](https://yiming_chang.gitee.io/pure-admin-doc/)
+
 ## 特性
 - 前端采用[vue-pure-admin](https://yiming_chang.gitee.io/pure-admin-doc/)的精简版pure-admin-thin进行二次开发
 - 与后端项目[cht](https://github.com/xsyl06/cht)配合使用可降低上手难度
