@@ -32,8 +32,10 @@ const defaultConfig: AxiosRequestConfig = {
     serialize: stringify as unknown as CustomParamsSerializer
   }
 };
+//前端私钥
 const privateKey =
   "00e74bfced2294622f57105563ca902eb1f1ac6444b15acf7b6b0acee32f6531f7";
+//后端公钥
 const publicKey =
   "04c44236f742a4c98caea8e70b4f11d30ea391616f7018fa04d753e0849ca38fc06e70a4dff1b752f20605d866f4d14953d667b3c73506610043b83ad06a531cee";
 
