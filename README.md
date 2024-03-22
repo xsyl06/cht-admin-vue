@@ -11,6 +11,8 @@
 
 具体前端相关问题可查看[vue-pure-admin保姆级文档](https://yiming_chang.gitee.io/pure-admin-doc/)
 
+演示地址：http://124.221.46.250:21001/cht-admin/#/login
+
 ## 特性
 - 前端采用[vue-pure-admin](https://yiming_chang.gitee.io/pure-admin-doc/)的精简版pure-admin-thin进行二次开发
 - 与后端项目[cht](https://github.com/xsyl06/cht)配合使用可降低上手难度
